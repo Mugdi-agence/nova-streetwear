@@ -1,0 +1,909 @@
+:root {
+    --primary: #7700ffb5;
+    --secondary: #e194ff;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.sticky-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 450vh;
+}
+
+#WebGL {
+  width: 100%;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  left: 0;
+  display: block;
+  pointer-events: none;
+  z-index: 998;
+  filter: blur(15px);
+  opacity: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  display: flex;
+  scroll-behavior: smooth;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  user-select: none;
+background-color: #0f0f1a;
+}
+
+.navfix {
+  position: fixed;
+  top: -30px;
+  filter: blur(50px);
+  opacity: 0;
+  width: 70%;
+  background: transparent;
+  backdrop-filter: blur(50px);
+  overflow: hidden;
+  padding: 20px;
+  border-radius: 999px;
+  z-index: 1000;
+  box-shadow: 0 10px 100px rgba(0, 0, 0, 0.393);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  place-items: center;
+}
+
+.navfix button {
+    padding: 10px 30px;
+    font-size: 20px;
+    background: linear-gradient(90deg, var(--primary), #b700ffad, var(--primary));
+    border: 0;
+    border-radius: 999px;
+    font-weight: 1000;
+    color: white;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.navfix button:hover {
+    box-shadow: 0 10px 100px #b700ff;
+    transform: scale(1.05);
+    background-position: 100px;
+}
+
+.navfix ul {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  list-style: none;
+}
+
+.navfix li a {
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.navfix li a:hover {
+  opacity: 0.6;
+  text-shadow: 0 5px 40px rgb(0, 0, 0);
+}
+
+.logo {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    background-clip: text;
+    color: transparent;
+    user-select: none;
+    opacity: 0.9;
+    font-weight: 1000;
+}
+
+.navfix .blub {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    filter: blur(100px);
+    pointer-events: none;
+    animation: 10s blub infinite ease-in-out;
+}
+
+@keyframes blub {
+    0%, 100% {
+        transform: translateX(0);
+    } 50% {
+        transform: translateX(60vw);
+    }
+}
+
+.screen {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 1000;
+}
+
+#s1 {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+
+#s1::before {
+    content: "";
+    position: absolute;
+    width: 250%;
+    height: 250%;
+    top: -75%;
+    left: -75%;
+    background-image: 
+        repeating-linear-gradient(
+            to right,
+            rgba(153, 0, 255, 0.151) 0px,
+            rgba(153, 0, 255, 0.151) 1px,
+            transparent 1px,
+            transparent 40px
+        ),
+        repeating-linear-gradient(
+            to bottom,
+            rgba(153, 0, 255, 0.151) 0px,
+            rgba(153, 0, 255, 0.151) 1px,
+            transparent 1px,
+            transparent 40px
+        );
+    background-size: 40px 40px;
+    background-color: white;
+    animation: bg 100s linear infinite;
+    transform-origin: center center;
+    z-index: 0;
+}
+
+@keyframes bg {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+
+#s1 h1 {
+    font-size: 120px;
+    font-family: 'Segoe UI Light', Courier, monospace;
+    font-weight: 100;
+    text-shadow: 0 10px 50px black;
+    font-style: italic;
+    filter: blur(50px);
+    opacity: 0;
+}
+
+#s1 h2 {
+    font-size: 70px;
+    font-family: 'Segoe UI Black' sans-serif;
+    font-weight: 1000;
+    font-style:normal;
+    text-shadow: 0 10px 50px black;
+    filter: blur(50px);
+    opacity: 0;
+}
+
+#s1 span {
+    color: transparent;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    background-clip: text;
+    font-weight: 100;
+    font-style: italic;
+    text-shadow: 0 10px 50px var(--secondary);
+}
+
+#s1 .textes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    place-items: center;
+    margin-top: -30vh;
+}
+
+.blob {
+    position: absolute;
+    top: 60vh;
+    left: 0;
+    width: 100%;
+    height: 70vh;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    opacity: 0.6;
+    filter: blur(200px);
+}
+
+.bloub{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%;
+    height: 30vh;
+    border-radius: 0 10px 50% 10px;
+    background: linear-gradient(45deg,rgb(0, 72, 255), rgb(0, 191, 255));
+    opacity: 0.6;
+    filter: blur(200px);
+    animation: 10s bloub infinite ease-in-out;
+}
+
+@keyframes bloub {
+    0%, 100% {
+        transform: translateX(0);
+    } 50% {
+        transform: translateX(70vw);
+    }
+}
+
+
+#s2 {
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+    background: transparent;
+    z-index: 200;
+    height: fit-content;
+    padding-top: 13vh;
+}
+
+.bolb {
+    position: absolute;
+    margin-left: -60vw;
+    width: 30%;
+    height: 70vh;
+    border-radius:50%;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    opacity: 0.6;
+    filter: blur(300px);
+}
+
+#s2 .left {
+    display: flex;
+    width: 20vw;
+    top: 0; left: 0;
+}
+
+#s2 .right {
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
+    width: fit-content;
+    perspective: 1000px;
+}
+
+#s2 .right h1{
+    color: #ffffff;
+    font-size: 70px;
+    text-shadow: 0 10px 100px white;
+}
+
+#s2 .right h1 span {
+    color: transparent;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    background-clip: text;
+    font-family: 'Segoe UI Light';
+    font-style: italic;
+    text-shadow: 0 10px 100px var(--secondary);
+}
+
+.box {
+    background: #8800ff36;
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    display: flex;
+    width: 40vw;
+    height: fit-content;
+    flex-direction: column;
+    border-radius: 30px;
+    gap: 4vh;
+    transform-style: preserve-3d;
+    box-shadow: 0 10px 100px #000;
+}
+
+.cards {
+    background: #e297ff36;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    border-radius: 13px;
+    text-shadow: 0 10px 100px white;
+    gap: 2vh;
+    transition: 0.5s ;
+}
+
+.cards:hover{
+    transform: translateY(-10px) scale(1.05) rotateZ(1deg);
+    box-shadow: 0 10px 100px rgba(183, 0, 255, 0.164);
+    background: #e297ff69;
+}
+
+.tilte {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tilte h3 {
+    font-size: 30px;
+}
+
+.icon {
+    background: white;
+    box-shadow: 0 10px 100px #e194ff;
+    color: #e194ff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+#s3 {
+    display: flex;
+    flex-direction: row;
+    gap: 4VW;
+    background: transparent;
+}
+
+#s3 .right {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.blab {
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    filter: blur(500px);
+}
+
+#s3 .left {
+    display: flex;
+    flex-direction: column;
+    width:40vw;
+    gap: 4vh;
+}
+
+#s3 .left h1 {
+    color: white;
+    font-size: 80px;
+}
+
+#s3 .left p {
+    font-size: 20px;
+    color: white;
+}
+
+#s4 {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    text-shadow: 0 10px 100px black;
+}
+
+#s4 h1 {
+    font-size: 100px;
+    z-index: 999;
+}
+
+#s4 h2 {
+    font-size: 90px;
+    z-index: 1;
+}
+
+#s4 .blub {
+    position: absolute;
+    width: 70vw;
+    height: 50vh;
+    left:15vw;
+    background: linear-gradient(45deg, var(--primary), rgba(0, 140, 255, 0.445));
+    filter: blur(200px);
+}
+
+.spray {
+    position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-image: url('bruit.png');
+  background-size: cover;
+  opacity: 0.1;
+}
+
+#s5 {
+    height: 40vh;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    display: flex;
+    flex-direction: row;
+    gap: 20vw;
+    backdrop-filter: blur(2px) contrast(1.2) brightness(1.05);
+}
+
+#s5 .left {
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+    margin-left: 2%;
+    perspective: 1000px;
+}
+
+#s5 .left h1 {
+    font-size: 40px;
+    color: white;
+    text-shadow: 0 10px 100px white;
+    font-weight: bolder;
+}
+
+#s5 button span {
+    color: transparent;
+    background: linear-gradient(45deg, var(--primary), var(--secondary), var(--primary));
+    background-clip: text;
+    font-weight: bolder;
+    text-shadow: 0 10px 100px var(--secondary);
+    font-size: 30px;
+    transition: 1s;
+}
+
+#s5 button span:hover{
+    animation: 5s spanen infinite;
+}
+
+@keyframes spanen {
+    0% ,100% {
+        background-position: 0px;
+    } 50% {
+        background-position: 700px;
+    }
+}
+
+#s5 button {
+    background: rgb(255, 255, 255);
+    padding: 10px 30px;
+    border: 0;
+    border-radius: 999px;
+    box-shadow: 0 10px 100px rgba(255, 255, 255, 0.557);
+    position: relative;
+    transition: 0.5s;
+    transform-style: preserve-3d;
+}
+
+#s5 button:hover {
+    transform: translateY(-5px) scale(1.05) rotate3d(1, 0, 0, 15deg);
+    box-shadow: 0 10px 100px rgb(255, 255, 255), 0 10px 500px white;
+    cursor: pointer;
+}
+
+footer {
+    background: #08000b;
+    position: relative;
+    height: 60vh;
+    width: 100%;
+    padding-top: 1px;
+    display: flex;
+    text-shadow: 0 10px 100px white;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+footer .logo {
+    font-weight: 1000;
+    font-size: 40px;
+    opacity: 1;
+    text-shadow: 0 10px 100px #e194ff;
+}
+
+.footing .left {
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
+    width: 33vw;
+}
+
+.txt1 {
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+    color: white;
+    font-size: 25px;
+    list-style-type:none ;
+}
+
+.footing {
+    display: flex;
+    padding: 40px;
+    flex-direction: row;
+}
+
+.middle {
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+    color: white;
+    width: 33vw;
+    place-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.middle li {
+    font-size: 25px;
+    list-style-type: none;
+}
+
+.txt2 {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+
+.right {
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+    color: white;
+    width: 33vw;
+    place-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.right li {
+    font-size: 25px;
+    list-style-type: none;
+}
+
+.txt3 {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    color: white;
+    opacity: 0.5;
+    height: 100%;
+    width: 100%;
+    place-items: center;
+    margin: 0 0 auto;
+}
+
+hr {
+    background: linear-gradient(to right, #00000000, #FFF, #00000000);
+    width: 100%;
+    border: 0;
+    height: 30px;
+    opacity: 0.3;
+    z-index: 1000;
+}
+
+.social {
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+}
+
+
+.blea {
+    position: absolute;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    width: 200px;
+    height: 200px;
+    margin-top: 40vh;
+    filter: blur(150px);
+    opacity: 0.5;
+}
+
+.bleo {
+    position: absolute;
+    background: linear-gradient(45deg, rgb(0, 81, 255), rgb(0, 187, 255));
+    width: 200px;
+    height: 200px;
+    margin-top: -40px;
+    margin-left: 160vh;
+    filter: blur(150px);
+    opacity: 0.5;
+}
+
+.blei {
+    position: absolute;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    width: 200px;
+    height: 200px;
+    margin-top: -40px;
+    margin-left: 80vh;
+    filter: blur(150px);
+    opacity: 0.5;
+}
+
+.bleu {
+    position: absolute;
+    background: linear-gradient(45deg, rgb(0, 81, 255), rgb(0, 187, 255));
+    opacity: 0.5;
+    width: 200px;
+    height: 200px;
+    margin-top: 40vh;
+    margin-left: 100vh;
+    filter: blur(150px);
+}
+
+#loader {
+  position: fixed;
+  top:0; left:0; right:0; bottom:0;
+  background:transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#loader::before {
+  content: "";
+  width: 50px;
+  height: 50px;
+  z-index: 12000;
+  border: 5px solid var(--primary);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.noscroll {
+  overflow: hidden;
+}
+
+.mobile {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    background: transparent;
+    backdrop-filter: blur(50px);
+    place-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.mobile ul{
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    text-align: center;
+}
+
+.mobile ul li {
+    list-style-type: none;
+}
+
+.mobile ul li a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.589);
+    text-shadow: 0 10px 100px black;
+    font-weight: 1000;
+    font-size: 30px;
+}
+
+.mobile button {
+    padding: 20px 40px;
+    font-size: 30px;
+    border: 0;
+    color: white;
+    font-weight: 1000;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.228);
+    backdrop-filter: blur(50px);
+}
+
+.mobile .logo {
+    font-size: 40px;
+}
+
+.menu {
+    font-weight: 1000;
+    font-size: 40px;
+    background: transparent;
+    box-shadow: 0 10px 100px rgba(81, 81, 81, 0.537);
+    backdrop-filter: blur(5px);
+    width: 80px;
+    height: 80px;
+    position: fixed;
+    top: 1%;
+    left: 1%;
+    z-index: 10000;
+    border-radius: 30px;
+    justify-content: center;
+    place-items: center;
+    display: none;
+    filter: blur(30px);
+    opacity: 0;
+}
+
+.menu i {
+    background: linear-gradient(45deg, #b700ff, #e194ff);
+    background-clip:text;
+    color: transparent;
+    text-shadow: 0 10px 100px #b700ff;
+}
+
+.mobile.active {
+  opacity: 1;
+  display: flex;
+  pointer-events: all;
+}
+
+@media (max-width:1106px) {
+
+    #WebGL {
+        display: none;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .navfix {
+        display: none;
+    }
+
+
+    #s1 h1 {
+        font-size: 20vw;
+    }
+
+    #s1 h2 {
+        font-size: 7vw;
+    }
+
+    #s2 {
+        height: max-content;
+    }
+
+    #s2 .left {
+        display: none;
+    }
+
+    #s2 .right {
+        justify-content: center;
+        place-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #s2 .right .box {
+        width: 90vw;
+    }
+
+    #s3 {
+        padding-top: 13vh;
+        height: fit-content;
+    }
+
+    #s3 .right {
+        display: none;
+    }
+
+    #s3 .left {
+        justify-content: center;
+        place-items: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center
+    }
+
+    #s3 .left h1 {
+        font-size: 7vw;
+    }
+
+    #s3 .left p {
+        background: #b700ff4e;
+        padding: 30px;
+        border-radius: 30px;
+        text-shadow: 0 10px 100px white;
+        width: 90vw;
+    }
+
+    #s4 {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+
+    #s5 {
+        display: flex;
+        flex-direction: column;
+        place-items: center;
+        justify-content: center;
+    }
+
+    #s5 .left {
+        text-align: center;
+        gap: 1vh;
+    }
+
+    #s5 p {
+        width: 90vw;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        place-items: center;
+        gap: 4vh;
+    }
+
+    .footing {
+        display: flex;
+        flex-direction: column;
+        place-items: center;
+        gap: 4vh;
+    }
+
+    .footing .left {
+        display: flex;
+        place-items: center;
+        text-align: center;
+        gap: 4vh;
+    }
+
+    .txt1, .txt2, .txt3 {
+        font-size: 30px;
+        width: 90vw;
+    }
+
+    hr {
+        height: 1vh;
+    }
+
+    .footer {
+        display: flex;
+        flex-direction: column;
+        gap: 4vh;
+        text-align: center;
+        padding-bottom: 30px;
+    }
+
+    .menu {
+        display: flex;
+    }
+}
