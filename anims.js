@@ -1,14 +1,6 @@
 window.scrollTo(0, 0);
 document.body.classList.add('noscroll');
 
-function preventScroll(e) {
-    e.preventDefault();
-}
-
-  window.addEventListener('wheel', preventScroll, { passive: false });
-  window.addEventListener('touchmove', preventScroll, { passive: false });
-  window.addEventListener('keydown', preventScroll, { passive: false });
-
 gsap.registerPlugin(ScrollTrigger);
 
 gsap.to('#s2 .right h1', {
@@ -94,14 +86,6 @@ gsap.from('#s4 h2', {
     ease: 'none'
 });
 
-  window.addEventListener('DOMContentLoaded', () => {
-    window.scrollTo(0, 0);
-  });
-
-  if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-  }
-
 function preventScroll(e) {
   e.preventDefault();
 }
@@ -116,8 +100,6 @@ window.addEventListener('keydown', (e) => {
 
 window.onload = function () {
   window.scrollTo(0, 0);
-    document.documentElement.style.overflow = '';
-    document.body.style.overflow = '';
   gsap.to("#loader", {
     opacity: 0,
     pointerEvents: "none",
@@ -125,7 +107,6 @@ window.onload = function () {
     onComplete: () => {
       document.getElementById("loader").style.display = "none";
       document.body.classList.remove('noscroll');
-
 
       window.removeEventListener('wheel', preventScroll);
       window.removeEventListener('touchmove', preventScroll);
@@ -175,8 +156,4 @@ window.onload = function () {
 
     }
   });
-    window.addEventListener('wheel', preventScroll, { passive: false });
-  window.addEventListener('touchmove', preventScroll, { passive: false });
-  window.addEventListener('keydown', preventScroll, { passive: false });
 };
-
