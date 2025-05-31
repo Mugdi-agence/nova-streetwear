@@ -1,18 +1,26 @@
-const menuBtn = document.getElementById('menu');
-const mobileNav = document.getElementById('mobile');
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+};
 
-menuBtn.addEventListener('click', () => {
-  mobileNav.classList.toggle('active');
-});
+document.addEventListener('DOMContentLoaded', () => {
+  const menuBtn = document.getElementById('menu');
+  const mobileNav = document.getElementById('mobile');
+  const navLinks = mobileNav.querySelectorAll('a');
 
-const navLinks = mobileNav.querySelectorAll('a');
-navLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    mobileNav.classList.remove('active');
+  menuBtn.addEventListener('click', () => {
+    mobileNav.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
   });
-});
-  
-function smoothScrollTo(targetY, duration = 800) {
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    });
+  });
+
+  // Smooth scroll for internal links
+  function smoothScrollTo(targetY, duration = 800) {
     const startY = window.scrollY;
     const change = targetY - startY;
     const startTime = performance.now();
@@ -23,23 +31,24 @@ function smoothScrollTo(targetY, duration = 800) {
         : -1 + (4 - 2 * t) * t;
     }
 
-   function animateScroll(currentTime) {
-    const elapsed = currentTime - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    const ease = easeInOutQuad(progress);
+    function animateScroll(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = easeInOutQuad(progress);
 
-    window.scrollTo(0, startY + change * ease);
+      window.scrollTo(0, startY + change * ease);
 
-    if (progress < 1) {
-      requestAnimationFrame(animateScroll);
-    } else {
-      targetScroll = targetY;
-      currentScroll = targetY;
+      if (progress < 1) {
+        requestAnimationFrame(animateScroll);
+      } else {
+        targetScroll = targetY;
+        currentScroll = targetY;
+      }
     }
-  }
 
     requestAnimationFrame(animateScroll);
   }
+
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', function (e) {
       e.preventDefault();
@@ -52,6 +61,7 @@ function smoothScrollTo(targetY, duration = 800) {
     });
   });
 
+  // Smooth scrolling with wheel
   let targetScroll = window.scrollY;
   let currentScroll = window.scrollY;
   let isScrolling = false;
@@ -86,17 +96,4 @@ function smoothScrollTo(targetY, duration = 800) {
       requestAnimationFrame(smoothScroll);
     }
   }, { passive: false });
-
-  const menuToggle = document.getElementById('menu');
-
-  menuToggle.addEventListener('click', () => {
-    mobileNav.classList.toggle('active');
-    document.body.classList.toggle('menu-open');
-  });
-
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      mobileNav.classList.remove('active');
-      document.body.classList.remove('menu-open');
-    });
-  });
+});
