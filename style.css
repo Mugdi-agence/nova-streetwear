@@ -683,13 +683,8 @@ hr {
 }
 
 .noscroll {
-  overflow: hidden !important;
-  position: fixed !important;
-  height: 100vh !important;
-  width: 100vw !important;
-  touch-action: none !important;
+  overflow: hidden;
 }
-
 
 .mobile {
     height: 100vh;
