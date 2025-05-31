@@ -156,5 +156,8 @@ window.onload = function () {
 
     }
   });
+    window.addEventListener('wheel', preventScroll, { passive: false });
+  window.addEventListener('touchmove', preventScroll, { passive: false });
+  window.addEventListener('keydown', preventScroll, { passive: false });
 };
 
