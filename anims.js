@@ -1,6 +1,14 @@
 window.scrollTo(0, 0);
 document.body.classList.add('noscroll');
 
+function preventScroll(e) {
+    e.preventDefault();
+}
+
+  window.addEventListener('wheel', preventScroll, { passive: false });
+  window.addEventListener('touchmove', preventScroll, { passive: false });
+  window.addEventListener('keydown', preventScroll, { passive: false });
+
 gsap.registerPlugin(ScrollTrigger);
 
 gsap.to('#s2 .right h1', {
@@ -85,6 +93,14 @@ gsap.from('#s4 h2', {
     delay: 2,
     ease: 'none'
 });
+
+  window.addEventListener('DOMContentLoaded', () => {
+    window.scrollTo(0, 0);
+  });
+
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
 
 function preventScroll(e) {
   e.preventDefault();
