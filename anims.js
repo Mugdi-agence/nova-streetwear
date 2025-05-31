@@ -1,4 +1,7 @@
-window.scrollTo(0, 0);
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+};
+
 document.body.classList.add('noscroll');
 
 gsap.registerPlugin(ScrollTrigger);
@@ -86,9 +89,7 @@ gsap.from('#s4 h2', {
     ease: 'none'
 });
 
-
-window.onload = function () {
-  window.scrollTo(0, 0);
+window.onload = function() {
   gsap.to("#loader", {
     opacity: 0,
     pointerEvents: "none",
@@ -97,8 +98,7 @@ window.onload = function () {
       document.getElementById("loader").style.display = "none";
       document.body.classList.remove('noscroll');
 
-
-      gsap.to('#WebGL', {
+       gsap.to('#WebGL', {
         opacity: 1,
         filter: 'blur(0px)',
         duration: 1,
@@ -139,7 +139,6 @@ window.onload = function () {
         ease: 'power2.out',
         delay: 1.2
       });
-
     }
-  });
+  }, 2);
 };
