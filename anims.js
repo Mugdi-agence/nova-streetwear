@@ -1,7 +1,4 @@
-window.onbeforeunload = function () {
-  window.scrollTo(0, 0);
-};
-
+window.scrollTo(0, 0);
 document.body.classList.add('noscroll');
 
 gsap.registerPlugin(ScrollTrigger);
@@ -102,6 +99,7 @@ window.addEventListener('keydown', (e) => {
 }, { passive: false });
 
 window.onload = function () {
+  window.scrollTo(0, 0);
   gsap.to("#loader", {
     opacity: 0,
     pointerEvents: "none",
