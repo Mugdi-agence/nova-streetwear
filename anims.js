@@ -116,6 +116,8 @@ window.addEventListener('keydown', (e) => {
 
 window.onload = function () {
   window.scrollTo(0, 0);
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
   gsap.to("#loader", {
     opacity: 0,
     pointerEvents: "none",
@@ -123,6 +125,7 @@ window.onload = function () {
     onComplete: () => {
       document.getElementById("loader").style.display = "none";
       document.body.classList.remove('noscroll');
+
 
       window.removeEventListener('wheel', preventScroll);
       window.removeEventListener('touchmove', preventScroll);
