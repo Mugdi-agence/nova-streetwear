@@ -89,7 +89,19 @@ gsap.from('#s4 h2', {
     ease: 'none'
 });
 
-window.onload = function() {
+function preventScroll(e) {
+  e.preventDefault();
+}
+
+window.addEventListener('wheel', preventScroll, { passive: false });
+window.addEventListener('touchmove', preventScroll, { passive: false });
+window.addEventListener('keydown', (e) => {
+  if ([32, 33, 34, 35, 36, 37, 38, 39, 40].includes(e.keyCode)) {
+    e.preventDefault();
+  }
+}, { passive: false });
+
+window.onload = function () {
   gsap.to("#loader", {
     opacity: 0,
     pointerEvents: "none",
@@ -98,7 +110,11 @@ window.onload = function() {
       document.getElementById("loader").style.display = "none";
       document.body.classList.remove('noscroll');
 
-       gsap.to('#WebGL', {
+      window.removeEventListener('wheel', preventScroll);
+      window.removeEventListener('touchmove', preventScroll);
+      window.removeEventListener('keydown', preventScroll);
+
+      gsap.to('#WebGL', {
         opacity: 1,
         filter: 'blur(0px)',
         duration: 1,
@@ -139,6 +155,8 @@ window.onload = function() {
         ease: 'power2.out',
         delay: 1.2
       });
+
     }
-  }, 2);
+  });
 };
+
