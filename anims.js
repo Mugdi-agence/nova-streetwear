@@ -86,17 +86,6 @@ gsap.from('#s4 h2', {
     ease: 'none'
 });
 
-function preventScroll(e) {
-  e.preventDefault();
-}
-
-window.addEventListener('wheel', preventScroll, { passive: false });
-window.addEventListener('touchmove', preventScroll, { passive: false });
-window.addEventListener('keydown', (e) => {
-  if ([32, 33, 34, 35, 36, 37, 38, 39, 40].includes(e.keyCode)) {
-    e.preventDefault();
-  }
-}, { passive: false });
 
 window.onload = function () {
   window.scrollTo(0, 0);
@@ -108,9 +97,6 @@ window.onload = function () {
       document.getElementById("loader").style.display = "none";
       document.body.classList.remove('noscroll');
 
-      window.removeEventListener('wheel', preventScroll);
-      window.removeEventListener('touchmove', preventScroll);
-      window.removeEventListener('keydown', preventScroll);
 
       gsap.to('#WebGL', {
         opacity: 1,
