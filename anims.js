@@ -1,6 +1,3 @@
-import gsap from "./node_modules/gsap/index.js";
-import ScrollTrigger from "./node_modules/gsap/ScrollTrigger.js";
-
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
 };
